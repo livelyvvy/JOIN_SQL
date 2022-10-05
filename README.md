@@ -13,6 +13,7 @@ CREATE TABLE prime_ministers (
 
 # How to copy or import file from csv into postgresql: copy the file path include the file name. 
 Right click on the folder go to properties, click on sharing select everyone and share.
+
 COPY presidents
 FROM 'C:\Users\NISSI\Desktop\EMMA_PYTHON\New folder\leaders2\presidents.csv'
 DELIMITER ','
@@ -28,6 +29,7 @@ SELECT * FROM presidents;
 SELECT * FROM prime_ministers;
 
 Joining two tables using ON clause
+
 SELECT p1.country, p1.continent,
 prime_minister, president
 FROM prime_ministers AS p1
@@ -35,6 +37,7 @@ INNER JOIN presidents AS p2
 ON p1.country = p2.country;
 
 #Joining table on country using USING clause. this works when both tables have the same column name
+
 SELECT p1.country, p1.continent,
 prime_minister, president
 FROM presidents AS p1
@@ -42,18 +45,21 @@ INNER JOIN prime_ministers AS p2
 USING (country);
 
 -- #Using Left join
+
 SELECT p1.country, prime_minister, president
 FROM prime_ministers AS p1
 LEFT JOIN presidents AS p2
 ON p1.country = p2.country;
 
 #Using Right join
+
 SELECT p1.country, prime_minister, president
 FROM prime_ministers AS p1
 RIGHT JOIN presidents AS p2
 ON p1.country = p2.country;
 
 #Using full join
+
 SELECT p1.country AS pm_co, p2.country AS pres_co, prime_minister, president
 FROM prime_ministers AS p1
 LEFT JOIN presidents AS p2
